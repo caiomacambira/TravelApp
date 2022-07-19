@@ -1,3 +1,5 @@
+from distutils.command.upload import upload
+
 from atracoes.models import Atracao
 from avaliacoes.models import Avaliacao
 from comentarios.models import Comentario
@@ -13,6 +15,7 @@ class PontoTuristico(models.Model):
     comentarios = models.ManyToManyField(Comentario)
     avaliacoes = models.ManyToManyField(Avaliacao)
     endereco = models.ForeignKey(Endereco, on_delete=models.CASCADE, null=True,blank=True)
+    foto = models.ImageField(null=True,blank=True)
 
     def __str__(self):
         return self.nome
